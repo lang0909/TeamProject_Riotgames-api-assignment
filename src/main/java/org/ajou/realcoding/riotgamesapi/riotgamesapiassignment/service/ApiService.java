@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.api.OpenRiotGamesApiClient;
 import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.domain.SummonerId;
+import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.domain.SummonerLeagueInfo;
 import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.repository.SummonerInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -38,8 +39,13 @@ public class ApiService {
 
     public SummonerId getSummonerIdById(String summonerId){
         return summonerInfoRepository.findSummonerId(summonerId);
-
     }
+
+    public SummonerLeagueInfo getSummonerLeagueInfo(String summonerId){
+        return summonerInfoRepository.findSummonerLeagueInfo(summonerId);
+    }
+
+    public
 
 
     LinkedList<String> citiesQueue = new LinkedList<>();
