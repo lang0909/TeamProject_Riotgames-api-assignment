@@ -11,5 +11,6 @@ import lombok.Data;
 @Data
 public class SummonerId {
 
+    private String name;
     private String id; //	Encrypted summoner ID. Max length 63 characters.
 }
