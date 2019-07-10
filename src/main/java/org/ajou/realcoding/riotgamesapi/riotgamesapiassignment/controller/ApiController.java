@@ -1,6 +1,7 @@
 package org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.controller;
 
 import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.domain.SummonerId;
+import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.domain.SummonerLeagueInfo;
 import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.service.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,14 +18,20 @@ public class ApiController {
     ApiService apiService;
 
 
-    @GetMapping("")
-    public List<String> getAvailableSummonerIds() throws IOException {
+//    @GetMapping("/riotgamesapi/available-summonerids")
+//    public List<String> getAvailableSummonerIds() throws IOException {
+//
+//        return apiService.loadAvailableSummonerNameFromFile();
+//    }
 
-        return apiService.loadAvailableSummonerNameFromFile();
-    }
-
-    @GetMapping("")
+    @GetMapping("/riotgamesapi/SummonerId/byEncryptedId/{id}")
     public SummonerId getSummonerId(@PathVariable String id){
         return apiService.getSummonerIdById(id);
     }
+
+    @GetMapping("/riotgamesapi/SummonerId/searchLeagueInfo/{id}")
+    public SummonerLeagueInfo getSummonerLeagueInfo(@PathVariable String id) {
+        return apiService.getSummonerLeagueInfo(id);
+    }
+
 }
