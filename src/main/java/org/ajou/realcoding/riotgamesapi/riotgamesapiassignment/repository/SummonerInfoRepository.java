@@ -2,6 +2,7 @@ package org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.repository;
 
 
 import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.domain.SummonerId;
+import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.domain.SummonerLeagueInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -33,4 +34,11 @@ public class SummonerInfoRepository {
         //mongoTemplate.update()
         //findOne했을때, 이미 데이터가 있다면 update가 되도록 만들기
     }
+
+    public SummonerLeagueInfo findSummonerLeagueInfo(String summonerId){
+        Query query = Query.query(Criteria.where("id").is((summonerId)));
+        return mongoTemplate.findOne(query, SummonerLeagueInfo.class);
+    }
+
+
 }
