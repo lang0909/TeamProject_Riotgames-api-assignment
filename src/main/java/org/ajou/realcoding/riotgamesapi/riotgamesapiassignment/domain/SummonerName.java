@@ -8,8 +8,8 @@ public class SummonerName
     private int profileIconId;
     private String name;
     private String puuid;
-    private int summonerLevel;
-    private String accountId;
+    private long summonerLevel;
+    private long revisionDate;
     private String id;
-    private String revisionDate;
+    private String accountId;
 }

@@ -7,15 +7,15 @@ public class SummonerEntry
 {
     private String queueType;
     private String summonerName;
-    private String hotStreak;
+    private boolean hotStreak;
     private int wins;
-    private String veteran;
+    private boolean veteran;
     private int losses;
     private String rank;
-    private String tier;
-    private String inactive;
-    private String freshBlood;
     private String leagueId;
+    private boolean inactive;
+    private boolean freshBlood;
+    private String tier;
     private String summonerId;
     private int leaguePoints;
 }
