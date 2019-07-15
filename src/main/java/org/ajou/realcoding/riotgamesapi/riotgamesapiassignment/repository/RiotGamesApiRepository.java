@@ -20,7 +20,7 @@ public class RiotGamesApiRepository
     {
         for(int i=0;i<summonerEntry.length;i++)
         {
-            Query query = Query.query((Criteria.where("summonerName").is(summonerEntry[i].getSummonerName())));
+            Query query = Query.query((Criteria.where("leagueId").is(summonerEntry[i].getLeagueId())));
             if(mongoTemplate.findOne(query,SummonerEntry.class)==null)
             {
                 mongoTemplate.insert(summonerEntry[i]);
