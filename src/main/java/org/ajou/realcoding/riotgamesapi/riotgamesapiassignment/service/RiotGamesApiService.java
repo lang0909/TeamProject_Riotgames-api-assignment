@@ -26,8 +26,12 @@ public class RiotGamesApiService {
     public League[] getLeagueBySummoner(String summonerName){
         String encryptedId = getEncryptedSummonerIdBySummonerName(summonerName);
         League[] league = riotGamesApiClient.getLeague(encryptedId);
-        for(int i = 0; i < 2; i++) {
-            riotGamesApiRepository.insertOrUpdateLeague(league[i]);
+        int lengthOfLeague = league.length;
+
+        int i = 0;
+        while(true){
+            riotGamesApiRepository.insertOrUpdateLeague(league[i++]);
+            if(i==lengthOfLeague) break;
         }
         log.info("League of User has been inserted successfully. {}", league);
         return league;
