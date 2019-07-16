@@ -1,4 +1,4 @@
-package org.ajou.realcoding.weathercrawler.weathercrawler.config;
+package org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.config;
 
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
