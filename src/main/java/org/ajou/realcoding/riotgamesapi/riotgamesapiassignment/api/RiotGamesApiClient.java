@@ -22,8 +22,8 @@ public class RiotGamesApiClient {
         return summoner;
     }
 
-    public League getLeague(String encryptedId) {
-        League league = restTemplate.exchange(LeagueUrl,HttpMethod.GET,null,League.class,encryptedId,api_key).getBody();
+    public League[] getLeague(String encryptedId) {
+        League[] league = restTemplate.exchange(LeagueUrl,HttpMethod.GET,null,League[].class,encryptedId,api_key).getBody();
         return league;
     }
 }

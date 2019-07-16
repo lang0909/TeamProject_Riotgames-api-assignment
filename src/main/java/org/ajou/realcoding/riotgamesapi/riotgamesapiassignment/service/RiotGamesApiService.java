@@ -1,5 +1,6 @@
 package org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.api.RiotGamesApiClient;
 import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.domain.League;
 import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.domain.Summoner;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.LinkedList;
 
 @Service
+@Slf4j
 public class RiotGamesApiService {
 
     @Autowired
@@ -17,18 +19,17 @@ public class RiotGamesApiService {
     @Autowired
     private RiotGamesApiRepository riotGamesApiRepository;
 
-    public Summoner getSummonerBySummonerName(String summonerName) {
-        riotGamesApiRepository.insertOrUpdateSummoner(riotGamesApiClient.getSummoner(summonerName));
-        Summoner summoner = riotGamesApiRepository.findSummonerBySummonerName(summonerName);
-
-        return summoner;
+    public String getEncryptedSummonerIdBySummonerName(String summonerName){
+        String encryptedSummonerId = riotGamesApiClient.getSummoner(summonerName).getId();
+        return encryptedSummonerId;
     }
-
-    public League getLeagueBySummoner(Summoner summoner){
-        String encryptedId = summoner.getId();
-        League league = riotGamesApiClient.getLeague(encryptedId);
-        riotGamesApiRepository.insertOrUpdateLeague(league);
-
+    public League[] getLeagueBySummoner(String summonerName){
+        String encryptedId = getEncryptedSummonerIdBySummonerName(summonerName);
+        League[] league = riotGamesApiClient.getLeague(encryptedId);
+        for(int i = 0; i < 2; i++) {
+            riotGamesApiRepository.insertOrUpdateLeague(league[i]);
+        }
+        log.info("League of User has been inserted successfully. {}", league);
         return league;
     }
 
