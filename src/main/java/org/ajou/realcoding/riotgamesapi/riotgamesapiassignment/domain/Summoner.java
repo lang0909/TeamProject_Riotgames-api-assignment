@@ -3,7 +3,7 @@ package org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.domain;
 import lombok.Data;
 
 @Data
-public class SummonerName
+public class Summoner
 {
     private int profileIconId;
     private String name;
