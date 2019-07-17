@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 @Slf4j
@@ -19,6 +21,10 @@ public class RiotGamesApiService
 
     @Autowired
     RiotGamesApiRepository riotGamesApiRepository;
+
+    public List<League> getLeagueInfo(String userName){
+        return riotGamesApiRepository.findLeagueInfo(userName);
+    }
 
     @Scheduled(fixedDelay = 4000L)
     public void getRiotGamesApiPeriodically()
