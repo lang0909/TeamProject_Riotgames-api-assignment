@@ -20,7 +20,8 @@ public class RiotGamesApiRepository {
             if (mongoTemplate.findOne(query, League.class) == null) {
                 mongoTemplate.insert(league[i]);
             } else {
-//                mongoTemplate.update();
+                //TODO
+//                mongoTemplate.update(); :
             }
         }
     }
