@@ -31,6 +31,6 @@ public class RiotGamesApiService {
         Summoner summoner = riotGamesApiClient.requestSummoner("hide on bush");
         League[] league = riotGamesApiClient.requestLeagueInfo(summoner.getId());
         riotGamesApiRepository.insertAndUpdateRiotGamesApi(league);
-        log.info("riot games api has been inserted successfully. {}", league);
+        log.info("Riot Games API has been inserted Successfully. {}", league);
     }
 }
