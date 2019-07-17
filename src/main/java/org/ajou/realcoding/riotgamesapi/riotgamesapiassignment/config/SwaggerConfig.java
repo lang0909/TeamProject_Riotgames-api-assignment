@@ -1,6 +1,5 @@
 package org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.config;
 
-
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Bean;
@@ -42,7 +41,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Weather Crawler")
+                .title("RiotGames API")
                 .version("1.0")
                 .build();
     }
