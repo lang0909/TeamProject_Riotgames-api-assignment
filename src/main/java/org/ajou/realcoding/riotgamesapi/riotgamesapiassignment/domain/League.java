@@ -15,6 +15,6 @@ public class League {
     private boolean inactive;
     private boolean freshBlood;
     private String tier;
-    private String summoerId;
+    private String summonerId;
     private int leaguePoints;
 }
