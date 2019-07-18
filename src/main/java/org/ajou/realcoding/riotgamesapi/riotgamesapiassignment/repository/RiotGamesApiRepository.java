@@ -16,11 +16,11 @@ public class RiotGamesApiRepository {
     MongoTemplate mongoTemplate;
 
     public League findLeagueInfo(String summonername){
-        Query query = Query.query(Criteria.where("name").is(summonername));
+        Query query = Query.query(Criteria.where("summonerName").is(summonername));
         return mongoTemplate.findOne(query, League.class);
     }
-    public void insertRiotGamesApi(League[] league){
-        Query query = Query.query(Criteria.where("summonerName").is(league[0].getSummonerId()));
-        mongoTemplate.insert(league[0]);
+    public void insertRiotGamesApi(League league){
+        Query query = Query.query(Criteria.where("summonerName").is(league.getSummonerId()));
+        mongoTemplate.insert(league);
     }
 }
