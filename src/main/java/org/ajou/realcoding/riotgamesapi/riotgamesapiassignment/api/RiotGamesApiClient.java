@@ -22,7 +22,7 @@ public class RiotGamesApiClient {
         return restTemplate.exchange(name_url, HttpMethod.GET, null, Summoner.class, name, apikey).getBody();
     }
 
-    public League[] requestLeagueInfo(String encrytedId){
-        return restTemplate.exchange(league_url,HttpMethod.GET, null, League[].class,encrytedId,apikey).getBody();
+    public League requestLeagueInfo(String encrytedId){
+        return restTemplate.exchange(league_url,HttpMethod.GET, null, League.class,encrytedId,apikey).getBody();
     }
 }
