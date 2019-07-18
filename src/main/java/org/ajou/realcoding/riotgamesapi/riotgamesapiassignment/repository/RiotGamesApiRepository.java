@@ -20,15 +20,11 @@ public class RiotGamesApiRepository
     {
         for(int i = 0; i< league.length; i++)
         {
-            Query query = Query.query((Criteria.where("leagueId").is(league[i].getLeagueId())));
-            if(mongoTemplate.findOne(query, League.class)==null)
-            {
+            Query query = Query.query((Criteria.where("summonerName").is(league[i].getSummonerName())).and("queueType").is(league[i].getQueueType()));
+            if(mongoTemplate.findOne(query, League.class)==null){
                 mongoTemplate.insert(league[i]);
             }
-            else
-            {
-                mongoTemplate.findAndReplace(query, league[i]);
-            }
+            mongoTemplate.findAndReplace(query, league[i]);
         }
     }
 
