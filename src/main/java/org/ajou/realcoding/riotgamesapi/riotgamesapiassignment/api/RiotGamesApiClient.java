@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class RiotGamesApiClient {
-    private final String apikey = "RGAPI-c02188ab-d8a6-496c-b921-3f8bac5627b3"; //Expires: Wed, Jul 17th, 2019 @ 10:16pm (PT)
+    private final String apikey = "RGAPI-a1f2d8d1-3b73-4ec7-aa0d-19afc1dd4d42"; //Expires: Thu, Jul 18th, 2019 @ 11:26pm (PT)
     private final String name_url = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{user_name}?api_key={apikey}";
     private final String entry_url = "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/{encrytedId}?api_key={apikey}";
 
