@@ -10,9 +10,9 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class RiotGamesApiClient {
 
-    private final String api_key = "RGAPI-026c885b-d114-4572-a40e-40507829455b";
+    private final String api_key = "RGAPI-69dac4d4-ed0f-49f2-9b86-af7c126d094d";
     private final String summonerUrl = "https://kr.api.riotgames.com/lol/summoners/v4/summoners/by-name/{summonerName}?api_key={apikey}";
-    private final String LeagueUrl ="https://kr.api.riotgames.com/lol/league/v4/positions/by-summoner/{encryptedSummonerId}?api_key={apikey}";
+    private final String LeagueUrl ="https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/{encryptedSummonerId}?api_key={apikey}";
 
     @Autowired
     RestTemplate restTemplate;
