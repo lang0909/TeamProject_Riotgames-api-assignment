@@ -27,7 +27,7 @@ public class RiotGamesApiService {
     @Scheduled(fixedDelay = 2000L)
     public void getRiotGamesApiPeriodically(){
 
-        Summoner summoner = riotGamesApiClient.requestSumonerInfo("hide on bush");
+        Summoner summoner = riotGamesApiClient.requestSummonerInfo("hide on bush");
         League league = riotGamesApiClient.requestLeagueInfo(summoner.getId());
         riotGamesApiRepository.insertRiotGamesApi(league);
         log.info("riot games api has been inserted successfully. {}",league);

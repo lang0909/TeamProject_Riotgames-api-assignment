@@ -18,7 +18,7 @@ public class RiotGamesApiClient {
     @Autowired
     RestTemplate restTemplate;
 
-    public Summoner requestSumonerInfo(String name){
+    public Summoner requestSummonerInfo(String name){
         return restTemplate.exchange(name_url, HttpMethod.GET, null, Summoner.class, name, apikey).getBody();
     }
 
