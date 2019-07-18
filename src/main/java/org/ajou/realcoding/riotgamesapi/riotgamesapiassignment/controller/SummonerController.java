@@ -6,18 +6,16 @@ import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.service.RiotGames
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class SummonerController {
     @Autowired
     RiotGamesApiService riotGamesApiService;
 
-   @Autowired
-    RiotGamesApiClient riotGamesApiClient;
-
     @GetMapping("/league/{summonerName}")
-    public League getLeagueBySummonerName(@PathVariable String summonerName){
-        League league = riotGamesApiService.getLeagueBySummoner(summonerName);
-        return league;
+    public List<League> getLeagueBySummonerName(@PathVariable String summonerName){
+        return riotGamesApiService.getLeagueBySummoner(summonerName);
     }
 
 }
