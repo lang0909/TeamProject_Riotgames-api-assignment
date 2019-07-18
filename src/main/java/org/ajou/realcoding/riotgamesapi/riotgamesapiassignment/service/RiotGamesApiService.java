@@ -1,13 +1,28 @@
 package org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.service;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
+import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.api.RiotGamesApiClient;
+import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.domain.League;
+import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.domain.Summoner;
+import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.repository.RiotGamesApiRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-@SpringBootApplication
+@Service
+@Slf4j
 public class RiotGamesApiService {
 
-	public static void main(String[] args) {
-		SpringApplication.run(RiotGamesApiService.class, args);
+	@Autowired
+	ObjectMapper objectMapper;
+	@Autowired
+	private RiotGamesApiClient riotGamesApiClient;
+
+	public League getLeagueBySummoner(String summonerName){
+		Summoner summoner = riotGamesApiClient.getSummoner(summonerName);
+		String encryptedId = summoner.getId();
+		League league = riotGamesApiClient.getLeague(encryptedId);
+		return league;
 	}
 
 }
