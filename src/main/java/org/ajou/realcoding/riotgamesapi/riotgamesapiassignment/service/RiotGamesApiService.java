@@ -19,20 +19,17 @@ public class RiotGamesApiService {
     @Autowired
     private RiotGamesApiRepository riotGamesApiRepository;
 
-    public String getEncryptedSummonerIdBySummonerName(String summonerName){
+    public String getEncryptedSummonerIdBySummonerName(String summonerName) {
         String encryptedSummonerId = riotGamesApiClient.getSummoner(summonerName).getId();
         return encryptedSummonerId;
     }
-    public League[] getLeagueBySummoner(String summonerName){
+
+    public League[] getLeagueBySummoner(String summonerName) {
         String encryptedId = getEncryptedSummonerIdBySummonerName(summonerName);
         League[] league = riotGamesApiClient.getLeague(encryptedId);
-        int lengthOfLeague = league.length;
 
-        int i = 0;
-        while(true){
-            riotGamesApiRepository.insertOrUpdateLeague(league[i++]);
-            if(i==lengthOfLeague) break;
-        }
+        riotGamesApiRepository.insertOrUpdateLeague(league);
+
         log.info("League of User has been inserted successfully. {}", league);
         return league;
     }

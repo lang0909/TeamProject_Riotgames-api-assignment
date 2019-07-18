@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id;
 
 @Data
 public class League {
-    @Id
+
     private String queueType;       //RANKED_SOLO_5x5 || RANKED_FLEX_SR
     private String summonerName;    //Summoner의 encryptedId랑 동일
     private boolean hotStreak;

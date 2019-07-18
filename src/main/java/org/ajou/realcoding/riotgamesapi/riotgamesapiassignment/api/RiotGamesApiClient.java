@@ -13,7 +13,7 @@ public class RiotGamesApiClient {
     @Autowired
     private RestTemplate restTemplate;
 
-    private final String api_key = "RGAPI-3a704312-5430-44dd-a9b9-470904dfd4ef";
+    private final String api_key = "RGAPI-2f5cad91-f705-4221-9432-411b241c1a3d";
     private final String summonerUrl = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{user_name}?api_key={apikey}";
     private final String LeagueUrl = "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/{encrytedId}?api_key={apikey}";
 
