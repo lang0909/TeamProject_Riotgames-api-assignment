@@ -14,20 +14,22 @@ public class RiotGamesApiRepository {
     @Autowired
     MongoTemplate mongoTemplate;
 
-    public void insertAndUpdateRiotGamesApi(League[] league) {
+        public void insertAndUpdateRiotGamesApi(League[] league) {
 
-        for (int i = 0; i < league.length; i++) {
-            Query query = Query.query((Criteria.where("summonerName").is(league[i].getSummonerName())));
-            if (mongoTemplate.findOne(query, League.class) == null) {
-                mongoTemplate.insert(league[i]);
-                log.info("< Inserting Hide on bush's League Information. Please wait. >");
-            } else {
-                //TODO
-                mongoTemplate.findAndReplace(query, league[i]);
-                log.info("< Updating Hide on bush's League Information. Please wait. >");
+            for (int i = 0; i < league.length; i++) {
+                Query query = Query.query((Criteria
+                        .where("summonerName").is(league[i].getSummonerName())
+                        .and("queueType").is(league[i].getQueueType())));
+                if (mongoTemplate.findOne(query, League.class) == null) {
+                    mongoTemplate.insert(league[i]);
+                    log.info("< Inserting Hide on bush's League Information. Please wait. >");
+                } else {
+                    //TODO
+                    mongoTemplate.findAndReplace(query, league[i]);
+                    log.info("< Updating Hide on bush's League Information. Please wait. >");
+                }
             }
         }
-    }
 
     public League findSummonerLeagueInfo(String summonerName) {
         Query query = Query.query(Criteria.where("summonerName").is((summonerName)));
