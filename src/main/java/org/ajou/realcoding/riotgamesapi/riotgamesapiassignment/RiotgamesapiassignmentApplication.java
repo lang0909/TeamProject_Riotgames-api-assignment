@@ -7,9 +7,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableScheduling
 public class RiotgamesapiassignmentApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(RiotgamesapiassignmentApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(RiotgamesapiassignmentApplication.class, args);
+    }
 
 }

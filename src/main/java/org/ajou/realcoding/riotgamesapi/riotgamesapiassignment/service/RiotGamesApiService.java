@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 @Slf4j
@@ -20,19 +22,15 @@ public class RiotGamesApiService {
     @Autowired
     RiotGamesApiRepository riotGamesApiRepository;
 
-    public League getLeagueInfo(String userName){
+    public List<League> getLeagueInfo(String userName) {
         return riotGamesApiRepository.findLeagueInfo(userName);
     }
 
-    @Scheduled(fixedDelay = 2000L)
-    public void getRiotGamesApiPeriodically(){
-
-        Summoner summoner = riotGamesApiClient.requestSummonerInfo("hide on bush");
-        League league = riotGamesApiClient.requestLeagueInfo(summoner.getId());
+    @Scheduled(fixedDelay = 4000L)
+    public void getRiotGamesApiPeriodically() {
+        Summoner summoner = riotGamesApiClient.requestSummoner("hide on bush");
+        League[] league = riotGamesApiClient.requestLeague(summoner.getId());
         riotGamesApiRepository.insertRiotGamesApi(league);
-        log.info("riot games api has been inserted successfully. {}",league);
-
+        log.info("riot games api has been inserted successfully. {}", league);
     }
-
 }
-

@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 @Configuration
 public class MongoConfig {
     @Bean
-    public MongoTemplate createMongoTemplate(){
-        return new MongoTemplate(new MongoClient(),"riot-games-api");
+    public MongoTemplate createMongoTemplate() {
+        return new MongoTemplate(new MongoClient(), "riot-games-api");
     }
 }

@@ -3,9 +3,7 @@ package org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.domain;
 import lombok.Data;
 
 @Data
-
 public class League {
-
     private String queueType;
     private String summonerName;
     private boolean hotStreak;
@@ -19,5 +17,4 @@ public class League {
     private String tier;
     private String summonerId;
     private int leaguePoints;
-
 }
