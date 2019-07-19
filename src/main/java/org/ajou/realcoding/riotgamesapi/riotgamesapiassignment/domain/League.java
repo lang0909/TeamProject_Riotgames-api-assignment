@@ -17,5 +17,4 @@ public class League {
     private String tier;
     private String summonerId;
     private int leaguePoints;
-
 }

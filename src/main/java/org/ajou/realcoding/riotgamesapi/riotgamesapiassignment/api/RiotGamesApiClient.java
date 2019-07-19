@@ -24,5 +24,4 @@ public class RiotGamesApiClient {
     public League[] requestLeague(String encrytedId) {
         return restTemplate.exchange(entry_url, HttpMethod.GET, null, League[].class, encrytedId, apikey).getBody();
     }
-
 }

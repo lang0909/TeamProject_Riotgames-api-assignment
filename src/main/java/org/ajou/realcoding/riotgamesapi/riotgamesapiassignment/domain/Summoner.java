@@ -2,7 +2,6 @@ package org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.domain;
 
 import lombok.Data;
 
-
 @Data
 public class Summoner {
     private int profileIconId;
@@ -12,5 +11,4 @@ public class Summoner {
     private long revisionDate;
     private String id;
     private String accountId;
-
 }
