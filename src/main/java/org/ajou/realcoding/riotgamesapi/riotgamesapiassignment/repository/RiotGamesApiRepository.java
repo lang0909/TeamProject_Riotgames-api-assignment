@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
 @Repository
 public class RiotGamesApiRepository {
     
@@ -25,7 +24,6 @@ public class RiotGamesApiRepository {
             mongoTemplate.findAndReplace(query, league[i]);
         }
     }
-
 
     public List<League> findLeagueInfo(String userName) {
         Query query = Query.query((Criteria.where("summonerName").regex(userName, "i")));

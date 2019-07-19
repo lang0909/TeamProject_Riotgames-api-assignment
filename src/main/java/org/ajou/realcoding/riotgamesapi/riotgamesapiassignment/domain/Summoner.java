@@ -12,4 +12,5 @@ public class Summoner {
     private long revisionDate;
     private String id;
     private String accountId;
+
 }
