@@ -90,3 +90,5 @@ MongoDB에 성공적으로 저장이 되어있다면, `localhost:8081`을 통해
 ```
 
 혹은 `http://localhost:8081//swagger-ui.html`을 통해 확인하실 수도 있습니다.
+
+![swaggerdemo](./swaggerdemo.PNG)
