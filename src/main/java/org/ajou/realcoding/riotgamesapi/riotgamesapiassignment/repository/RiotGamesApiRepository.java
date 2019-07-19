@@ -12,6 +12,7 @@ import java.util.List;
 
 @Repository
 public class RiotGamesApiRepository {
+    
     @Autowired
     MongoTemplate mongoTemplate;
   
@@ -30,5 +31,4 @@ public class RiotGamesApiRepository {
         Query query = Query.query((Criteria.where("summonerName").regex(userName, "i")));
         return mongoTemplate.find(query, League.class);
     }
-
 }

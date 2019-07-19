@@ -1,4 +1,5 @@
 package org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.api;
+
 import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.domain.League;
 import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.domain.Summoner;
 import org.springframework.beans.factory.annotation.Autowired;

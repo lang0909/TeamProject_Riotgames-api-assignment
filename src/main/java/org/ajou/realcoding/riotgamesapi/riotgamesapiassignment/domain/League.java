@@ -2,6 +2,7 @@ package org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.domain;
 
 import lombok.Data;
 
+
 @Data
 public class League {
     private String queueType;

@@ -6,6 +6,7 @@ import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.domain.League;
 import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.domain.Summoner;
 import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.repository.RiotGamesApiRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import java.util.List;
 @Service
 @Slf4j
 public class RiotGamesApiService {
+
     @Autowired
     RiotGamesApiClient riotGamesApiClient;
 
