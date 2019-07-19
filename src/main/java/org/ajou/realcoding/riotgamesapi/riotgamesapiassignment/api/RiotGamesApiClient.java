@@ -7,22 +7,22 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+
 @Service
 public class RiotGamesApiClient {
-
-    private final String api_key = "RGAPI-d1a42a3a-11da-4cf5-85ee-118c552b09e8";
-    private final String summonerUrl = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{summonerName}?api_key={api_key}";
-    private final String LeagueUrl ="https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/{encryptedSummonerId}?api_key={api_key}";
-
+    private final String apikey = "RGAPI-a509ecf8-7003-4cab-9e53-9e4276ac7a2a";
+    private final String name_url = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{user_name}?api_key={apikey}";
+    private final String entry_url = "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/{encrytedId}?api_key={apikey}";
+    
     @Autowired
     RestTemplate restTemplate;
-    public Summoner getSummoner(String summonerName){
-        Summoner summoner = restTemplate.exchange(summonerUrl, HttpMethod.GET,null,Summoner.class,summonerName,api_key).getBody();
-        return summoner;
+
+    public Summoner requestSummoner(String user_name) {
+        return restTemplate.exchange(name_url, HttpMethod.GET, null, Summoner.class, user_name, apikey).getBody();
     }
 
-    public League[] getLeague(String encryptedSummonerId) {
-        return restTemplate.exchange(LeagueUrl,HttpMethod.GET,null,League[].class,encryptedSummonerId,api_key).getBody();
+    public League[] requestLeague(String encrytedId) {
+        return restTemplate.exchange(entry_url, HttpMethod.GET, null, League[].class, encrytedId, apikey).getBody();
     }
 
 }
