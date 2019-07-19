@@ -77,3 +77,16 @@ if (mongoTemplate.findOne(query, League.class) == null) {
 이후, 위에서 작성한 쿼리문을 이용하여 DB에 데이터가 없다면, 새로 데이터를 Insert하게 됩니다.
 
 그 외에 DB에 데이터가 이미 있다면, findAndReplace 메소드를 이용하여 데이터를 찾고 Update하는 방식으로 만들었습니다.
+
+
+## GET Response
+MongoDB에 성공적으로 저장이 되어있다면, `localhost:8081`을 통해 DB에 저장되어있는 정보를 GET할 수 있습니다.
+
+```java
+    @GetMapping("/riot-games-api-assignment/leagues/by-user-name/{userName}")
+    public List<League> getLeague(@PathVariable String userName) {
+        return riotGamesApiService.getLeagueInfo(userName);
+    }
+```
+
+혹은 `http://localhost:8081//swagger-ui.html`을 통해 확인하실 수도 있습니다.
