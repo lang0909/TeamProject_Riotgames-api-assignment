@@ -4,17 +4,17 @@ import lombok.Data;
 
 @Data
 public class League {
-    private String leagueId;
     private String queueType;
-    private String tier;
-    private String rank;
-    private String summonerId;
     private String summonerName;
-    private int leaguePoints;
+    private boolean hotStreak;
     private int wins;
-    private int losses;
     private boolean veteran;
+    private int losses;
+    private String rank;
+    private String leagueId;
     private boolean inactive;
     private boolean freshBlood;
-    private boolean hotStreak;
+    private String tier;
+    private String summonerId;
+    private int leaguePoints;
 }
