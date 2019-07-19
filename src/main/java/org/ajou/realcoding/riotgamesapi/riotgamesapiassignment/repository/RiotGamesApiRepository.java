@@ -11,11 +11,10 @@ import java.util.List;
 
 
 @Repository
-
 public class RiotGamesApiRepository {
     @Autowired
     MongoTemplate mongoTemplate;
-
+  
     public void insertRiotGamesApi(League[] league) {
         for (int i = 0; i < league.length; i++) {
             Query query = Query.query((Criteria.where("summonerName").is(league[i].getSummonerName())).and("queueType").is(league[i].getQueueType()));
