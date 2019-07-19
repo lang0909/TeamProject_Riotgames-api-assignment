@@ -6,32 +6,31 @@ import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.domain.League;
 import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.domain.Summoner;
 import org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.repository.RiotGamesApiRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import java.util.LinkedList;
+import java.util.List;
 
 @Service
 @Slf4j
 public class RiotGamesApiService {
 
     @Autowired
-    private RiotGamesApiClient riotGamesApiClient;
+    RiotGamesApiClient riotGamesApiClient;
+
     @Autowired
-    private RiotGamesApiRepository riotGamesApiRepository;
+    RiotGamesApiRepository riotGamesApiRepository;
 
-    public String getEncryptedSummonerIdBySummonerName(String summonerName) {
-        String encryptedSummonerId = riotGamesApiClient.getSummoner(summonerName).getId();
-        return encryptedSummonerId;
+    public List<League> getLeagueInfo(String userName) {
+        return riotGamesApiRepository.findLeagueInfo(userName);
     }
 
-    public League[] getLeagueBySummoner(String summonerName) {
-        String encryptedId = getEncryptedSummonerIdBySummonerName(summonerName);
-        League[] league = riotGamesApiClient.getLeague(encryptedId);
-
-        riotGamesApiRepository.insertOrUpdateLeague(league);
-
-        log.info("League of User has been inserted successfully. {}", league);
-        return league;
+    @Scheduled(fixedDelay = 4000L)
+    public void getRiotGamesApiPeriodically() {
+        Summoner summoner = riotGamesApiClient.requestSummoner("hide on bush");
+        League[] league = riotGamesApiClient.requestLeague(summoner.getId());
+        riotGamesApiRepository.insertRiotGamesApi(league);
+        log.info("riot games api has been inserted successfully. {}", league);
     }
-
 }

@@ -1,13 +1,12 @@
 package org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.domain;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
+
 
 @Data
 public class League {
-
-    private String queueType;       //RANKED_SOLO_5x5 || RANKED_FLEX_SR
-    private String summonerName;    //Summoner의 encryptedId랑 동일
+    private String queueType;
+    private String summonerName;
     private boolean hotStreak;
     private int wins;
     private boolean veteran;
