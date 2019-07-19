@@ -5,11 +5,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
 @Configuration
-public class HttpConfig
-{
+public class HttpConfig {
     @Bean
-    public RestTemplate createRestTemplate()
-    {
+    public RestTemplate createRestTemplate() {
         return new RestTemplate();
     }
 }

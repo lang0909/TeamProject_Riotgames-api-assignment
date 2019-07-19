@@ -14,21 +14,19 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class RiotGamesApiService
-{
+public class RiotGamesApiService {
     @Autowired
     RiotGamesApiClient riotGamesApiClient;
 
     @Autowired
     RiotGamesApiRepository riotGamesApiRepository;
 
-    public List<League> getLeagueInfo(String userName){
+    public List<League> getLeagueInfo(String userName) {
         return riotGamesApiRepository.findLeagueInfo(userName);
     }
 
     @Scheduled(fixedDelay = 4000L)
-    public void getRiotGamesApiPeriodically()
-    {
+    public void getRiotGamesApiPeriodically() {
         Summoner summoner = riotGamesApiClient.requestSummoner("hide on bush");
         League[] league = riotGamesApiClient.requestLeague(summoner.getId());
         riotGamesApiRepository.insertRiotGamesApi(league);

@@ -16,7 +16,7 @@ public class RiotGamesApiController {
     RiotGamesApiService riotGamesApiService;
 
     @GetMapping("/riot-games-api-assignment/leagues/by-user-name/{userName}")
-    public List<League> getLeague(@PathVariable String userName){
+    public List<League> getLeague(@PathVariable String userName) {
         return riotGamesApiService.getLeagueInfo(userName);
     }
 }

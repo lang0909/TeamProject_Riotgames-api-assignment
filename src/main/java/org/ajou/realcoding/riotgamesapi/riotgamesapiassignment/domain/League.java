@@ -3,8 +3,7 @@ package org.ajou.realcoding.riotgamesapi.riotgamesapiassignment.domain;
 import lombok.Data;
 
 @Data
-public class League
-{
+public class League {
     private String queueType;
     private String summonerName;
     private boolean hotStreak;

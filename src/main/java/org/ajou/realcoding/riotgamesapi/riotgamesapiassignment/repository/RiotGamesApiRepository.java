@@ -12,17 +12,14 @@ import java.util.List;
 
 @Repository
 
-public class RiotGamesApiRepository
-{
+public class RiotGamesApiRepository {
     @Autowired
     MongoTemplate mongoTemplate;
 
-    public void insertRiotGamesApi(League[] league)
-    {
-        for(int i = 0; i< league.length; i++)
-        {
+    public void insertRiotGamesApi(League[] league) {
+        for (int i = 0; i < league.length; i++) {
             Query query = Query.query((Criteria.where("summonerName").is(league[i].getSummonerName())).and("queueType").is(league[i].getQueueType()));
-            if(mongoTemplate.findOne(query, League.class)==null){
+            if (mongoTemplate.findOne(query, League.class) == null) {
                 mongoTemplate.insert(league[i]);
             }
             mongoTemplate.findAndReplace(query, league[i]);
@@ -30,9 +27,9 @@ public class RiotGamesApiRepository
     }
 
 
-    public List<League> findLeagueInfo(String userName){
+    public List<League> findLeagueInfo(String userName) {
         Query query = Query.query((Criteria.where("summonerName").regex(userName, "i")));
-        return mongoTemplate.find(query,League.class);
+        return mongoTemplate.find(query, League.class);
     }
 
 }
