@@ -1,5 +1,5 @@
 # Spring Boot Application Using Riot Games API
-아주대학교 실전코딩 2조
+실전코딩 2조
 
 이안규, 원동욱, 최진영, 최지원, 김도연 - 총 5명
 
